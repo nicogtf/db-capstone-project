@@ -20,9 +20,9 @@ CREATE PROCEDURE AddValidBooking(IN BookingDate DATE, IN TableNumber INT)
         
         SELECT Validate(COUNT(*), CONCAT("Table ", TableNumber, " is already booked"))
         FROM bookings
-        WHERE date = BookingDate AND table_number = TableNumber;
+        WHERE Date = BookingDate AND TableNo = TableNumber;
         
-		INSERT INTO bookings (date, table_number)
+		INSERT INTO bookings (date, TableNo)
 		VALUES (BookingDate, TableNumber);
 		
 		IF `_rollback` THEN
